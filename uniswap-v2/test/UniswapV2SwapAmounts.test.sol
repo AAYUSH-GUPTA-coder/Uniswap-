@@ -2,10 +2,10 @@
 pragma solidity 0.8.24;
 
 import {Test, console2} from "forge-std/Test.sol";
-import {IERC20} from "../../src/interfaces/IERC20.sol";
-import {IWETH} from "../../src/interfaces/IWETH.sol";
-import {IUniswapV2Router02} from "../../src/interfaces/IUniswapV2Router02.sol";
-import {DAI, WETH, MKR, UNISWAP_V2_ROUTER_02} from "../../src/Constants.sol";
+import {IERC20} from "../src/interfaces/IERC20.sol";
+import {IWETH} from "../src/interfaces/IWETH.sol";
+import {IUniswapV2Router02} from "../src/interfaces/uniswap-v2/IUniswapV2Router02.sol";
+import {DAI, WETH, MKR, UNISWAP_V2_ROUTER_02} from "../src/Constants.sol";
 
 contract UniswapV2SwapAmountsTest is Test {
     IWETH private constant weth = IWETH(WETH);
@@ -36,8 +36,8 @@ contract UniswapV2SwapAmountsTest is Test {
     //   DAI 2957025828476064353307
     //   MKR 1223852775972498071
 
-    // Give us the amount of token A we will get if we swap X amount of token B. for example get 1e18 MKR we will need to swap 2,416 amount of DAI.
-    // User WETH is swapped to DAI and then swapped to MKR
+    // User MKR is swapped to DAI and then swapped to WETH
+    // TO GET 1e18 amount of MKR, user need to input 2.01 * 10e18 amount of DAI and 0.8ETH
     function test_getAmountsIn() public {
         address[] memory path = new address[](3);
         path[0] = WETH;
