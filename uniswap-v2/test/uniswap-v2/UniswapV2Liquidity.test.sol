@@ -2,11 +2,11 @@
 pragma solidity 0.8.24;
 
 import {Test, console2} from "forge-std/Test.sol";
-import {IERC20} from "../src/interfaces/IERC20.sol";
-import {IWETH} from "../src/interfaces/IWETH.sol";
-import {IUniswapV2Router02} from "../src/interfaces/uniswap-v2/IUniswapV2Router02.sol";
-import {IUniswapV2Pair} from "../src/interfaces/uniswap-v2/IUniswapV2Pair.sol";
-import {DAI, WETH, UNISWAP_V2_ROUTER_02, UNISWAP_V2_PAIR_DAI_WETH} from "../src/Constants.sol";
+import {IERC20} from "../../src/interfaces/IERC20.sol";
+import {IWETH} from "../../src/interfaces/IWETH.sol";
+import {IUniswapV2Router02} from "../../src/interfaces/uniswap-v2/IUniswapV2Router02.sol";
+import {IUniswapV2Pair} from "../../src/interfaces/uniswap-v2/IUniswapV2Pair.sol";
+import {DAI, WETH, UNISWAP_V2_ROUTER_02, UNISWAP_V2_PAIR_DAI_WETH} from "../../src/Constants.sol";
 
 contract UniswapV2LiquidityTest is Test {
     IWETH private constant weth = IWETH(WETH);
